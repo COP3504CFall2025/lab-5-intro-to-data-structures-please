@@ -152,7 +152,7 @@ public:
 
 	void shrinkIfNeeded(){
 		std::size_t half_capacity_= (capacity_ + 1)/2;
-		if(half_capacity_ < size_){ return; } //if half of capacity less than size, then shrink not needed
+		if(half_capacity_ <= size_){ return; } //if half of capacity less than size, then shrink not needed
 		//new array stored locally
 		T* data_copy_ = new T[half_capacity_];
 		std::size_t currIndex = front_;
