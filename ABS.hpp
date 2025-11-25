@@ -86,12 +86,12 @@ public:
     }
 
     T peek() const override{
-        if(curr_size_ == 0){ throw std::out_of_range("ABS peek() on empty array"); }
+        if(curr_size_ == 0){ throw std::runtime_error("ABS peek() on empty array"); }
         return array_[curr_size_ - 1];
     }
 
     T pop() override{
-        if(curr_size_ == 0){ throw std::out_of_range("ABS pop() on empty array"); }
+        if(curr_size_ == 0){ throw std::runtime_error("ABS pop() on empty array"); }
         T temp = array_[curr_size_ - 1];
         curr_size_ -= 1;
         return temp;

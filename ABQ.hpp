@@ -89,13 +89,13 @@ public:
 
     // Access
     T peek() const override{
-        if(curr_size_ == 0){ throw std::out_of_range("ABQ peek() on empty array"); }
+        if(curr_size_ == 0){ throw std::runtime_error("ABQ peek() on empty array"); }
         return array_[0];
     }
 
     // Deletion
     T dequeue() override{
-        if(curr_size_ == 0){ throw std::out_of_range("ABQ dequeue() on empty array"); }
+        if(curr_size_ == 0){ throw std::runtime_error("ABQ dequeue() on empty array"); }
         //shift it all to the left, overriding first variable
         T temp = array_[0];
         for(size_t i = 0; i < curr_size_ - 1; i++){

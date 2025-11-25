@@ -27,13 +27,13 @@ public:
 
     // Core Removal Operations
     T popFront() override{
-		if(!list.getHead()){ throw std::out_of_range("LLDQ popFront() on empty list"); }
+		if(!list.getHead()){ throw std::runtime_error("LLDQ popFront() on empty list"); }
 		T retData =  list.getHead()->data;
 		list.removeHead();
 		return retData;
 	}
     T popBack() override{
-		if(!list.getTail()){ throw std::out_of_range("LLDQ popBack() on empty list"); }
+		if(!list.getTail()){ throw std::runtime_error("LLDQ popBack() on empty list"); }
 		T retData =  list.getTail()->data;
 		list.removeTail();
 		return retData;
