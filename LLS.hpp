@@ -16,7 +16,7 @@ public:
     // Insertion
     void push(const T& item) override{
 		list.AddHead(item);
-	};
+	}
 
     // Deletion
     T pop() override{
@@ -24,20 +24,20 @@ public:
 		T retData =  list.getHead()->data;
 		list.RemoveHead();
 		return retData;
-	};
+	}
 
     // Access
     T peek() const override{
-		if(!list.getHead()){ throw std::out_of_range("LLS peek() on empty list"); }//if no head
+		if(!list.getHead()){ throw std::out_of_range("LLS peek() on empty list"); }
 		return list.getHead()->data;
 	}
 
     //Getters
-    std::size_t getSize() const noexcept override{ return list.getCount(); };
+    std::size_t getSize() const noexcept override{ return list.getCount(); }
 
 	//extra methods
-	void PrintForward(){ list.PrintForward(); };
-	void PrintReverse(){ list.PrintReverse(); };
+	void PrintForward(){ list.PrintForward(); }
+	void PrintReverse(){ list.PrintReverse(); }
 
 	//big five
 

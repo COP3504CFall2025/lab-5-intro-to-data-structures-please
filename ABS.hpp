@@ -33,7 +33,7 @@ public:
         this->capacity_ = rhs.capacity_;
         this->curr_size_ = rhs.curr_size_;
         return *this;
-    }
+    };
 
     ABS(ABS&& other) noexcept : capacity_(other.capacity_), curr_size_(other.curr_size_), array_(other.array_){
         other.capacity_ = 0;
@@ -53,13 +53,13 @@ public:
         rhs.capacity_ = 0;
         rhs.curr_size_ = 0;
         return *this;
-    }
+    };
     ~ABS() noexcept override{
         capacity_ = 0;
         curr_size_ = 0;
         delete[] array_;
         array_ = nullptr;
-    }
+    };
 
     // Get the number of items in the ABS
     [[nodiscard]] size_t getSize() const noexcept override{ return curr_size_; }
