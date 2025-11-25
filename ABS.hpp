@@ -94,8 +94,20 @@ public:
         if(curr_size_ == 0){ throw std::runtime_error("ABS pop() on empty array"); }
         T temp = array_[curr_size_ - 1];
         curr_size_ -= 1;
+        shrinkIfNeeded();
         return temp;
     }
+    void shrinkIfNeeded(){
+        std::size_t half_capacity_= (capacity_ + 1)/2;
+        if(half_capacity_ <= curr_size_){ return; }
+        T* temp = new T[half_capacity_];
+        for(size_t i = 0; i < curr_size_; i++){
+            temp[i] = array_[i];
+        }
+        delete[] array_;
+        array_ = temp;
+        capacity_ = half_capacity_;
+    }; //Reduces to half when sparse
 
     void PrintForward(){
         for(size_t i = 0; i < curr_size_; i++){
