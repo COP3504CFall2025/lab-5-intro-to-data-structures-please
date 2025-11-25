@@ -165,7 +165,7 @@ public:
 		data_ = data_copy_;
 		capacity_ = half_capacity_;
 		front_ = 0;
-		back_ = size_ % capacity_;
+		back_ = size_;
 	}; //Reduces to half when sparse
 
 	void PrintForward(){
