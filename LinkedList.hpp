@@ -7,11 +7,6 @@ using namespace std;
 template <typename T>
 class LinkedList {
 private:
-	// Stores pointers to first and last nodes and count
-	Node* head;
-	Node* tail;
-	unsigned int count;
-
 	//actual nodes
 	struct Node {
 		T data;
@@ -21,6 +16,12 @@ private:
 		Node(const T& input) :
 			data(input), prev(nullptr), next(nullptr) {}
 	};
+
+	// Stores pointers to first and last nodes and count
+	Node* head;
+	Node* tail;
+	unsigned int count;
+
 public:
 	// Behaviors
 	void printForward() const{ //print from head to tail
