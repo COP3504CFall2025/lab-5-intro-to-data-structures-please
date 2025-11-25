@@ -105,7 +105,7 @@ public:
 
     // Deletion
     T popFront() override{
-		if(size_ == 0){ throw std::out_of_range("ABDQ popFront() on empty array"); }
+		if(size_ == 0){ throw std::runtime_error("ABDQ popFront() on empty array"); }
 		T retVar = data_[front_];
 		front_ = (front_ + 1) % capacity_;
 		size_--;
@@ -113,7 +113,7 @@ public:
 		return retVar;
 	};
     T popBack() override{
-		if(size_ == 0){ throw std::out_of_range("ABDQ popBack() on empty array"); }
+		if(size_ == 0){ throw std::runtime_error("ABDQ popBack() on empty array"); }
 		T retVar = data_[(back_ - 1 + capacity_) % capacity_];
 		back_ = (back_ - 1 + capacity_) % capacity_;
 		size_--;
@@ -123,11 +123,11 @@ public:
 
     // Access
     const T& front() const override{
-		if(size_ == 0){ throw std::out_of_range("ABDQ front() on empty array"); }
+		if(size_ == 0){ throw std::runtime_error("ABDQ front() on empty array"); }
 		return data_[front_];
 	};
     const T& back() const override{
-		if(size_ == 0){ throw std::out_of_range("ABDQ back() on empty array"); }
+		if(size_ == 0){ throw std::runtime_error("ABDQ back() on empty array"); }
 		return data_[(back_ - 1 + capacity_) % capacity_];
 	};
 
