@@ -19,33 +19,33 @@ public:
 
     // Core Insertion Operations
     void pushFront(const T& item) override{
-		list.AddHead(item);
+		list.addHead(item);
 	}
     void pushBack(const T& item) override{
-		list.AddTail(item);
+		list.addTail(item);
 	}
 
     // Core Removal Operations
     T popFront() override{
 		if(!list.getHead()){ throw std::out_of_range("LLDQ popFront() on empty list"); }
 		T retData =  list.getHead()->data;
-		list.RemoveHead();
+		list.removeHead();
 		return retData;
 	}
     T popBack() override{
 		if(!list.getTail()){ throw std::out_of_range("LLDQ popBack() on empty list"); }
 		T retData =  list.getTail()->data;
-		list.RemoveTail();
+		list.removeTail();
 		return retData;
 	}
 
     // Element Accessors
     const T& front() const override{
-		if(!list.getHead()){ throw std::out_of_range("LLDQ front() on empty list"); }
+		if(!list.getHead()){ throw std::runtime_error("LLDQ front() on empty list"); }
 		return list.getHead()->data;
 	}
     const T& back() const override{
-		if(!list.getTail()){ throw std::out_of_range("LLDQ back() on empty list"); }
+		if(!list.getTail()){ throw std::runtime_error("LLDQ back() on empty list"); }
 		return list.getTail()->data;
 	}
 
@@ -53,8 +53,8 @@ public:
     std::size_t getSize() const noexcept override{ return list.getCount(); }
 
 	// Printers
-	void PrintForward(){ list.PrintForward(); }
-	void PrintReverse(){ list.PrintReverse(); }
+	void printForward(){ list.printForward(); }
+	void printReverse(){ list.printReverse(); }
 
 	// Big Five
 	// copy constructor

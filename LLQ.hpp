@@ -15,26 +15,26 @@ public:
 
     // Insertion
     void enqueue(const T& item) override{
-		list.AddTail(item);
+		list.addTail(item);
 	}
     // Deletion
     T dequeue() override{
-		if(!list.getHead()){ throw std::out_of_range("LLQ dequeue() on empty list"); }
+		if(!list.getHead()){ throw std::runtime_error("LLQ dequeue() on empty list"); }
 		T retData = list.getHead()->data;
-		list.RemoveHead();
+		list.removeHead();
 		return retData;
 	}
     // Access
     T peek() const override{
-		if(!list.getHead()){ throw std::out_of_range("LLQ peek() on empty list"); }
+		if(!list.getHead()){ throw std::runtime_error("LLQ peek() on empty list"); }
 		return list.getHead()->data;
 	}
     // Getter
     std::size_t getSize() const noexcept override{ return list.getCount(); }
 
 	// Print
-	void PrintForward(){ list.PrintForward(); }
-	void PrintReverse(){ list.PrintReverse(); }
+	void printForward(){ list.printForward(); }
+	void printReverse(){ list.printReverse(); }
 
 	// Big Five
 	// copy constructor
