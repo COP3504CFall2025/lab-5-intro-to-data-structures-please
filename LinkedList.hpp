@@ -6,6 +6,21 @@ using namespace std;
 
 template <typename T>
 class LinkedList {
+private:
+	// Stores pointers to first and last nodes and count
+	Node* head;
+	Node* tail;
+	unsigned int count;
+
+	//actual nodes
+	struct Node {
+		T data;
+		Node* prev;
+		Node* next;
+
+		Node(const T& input) :
+			data(input), prev(nullptr), next(nullptr) {}
+	};
 public:
 	// Behaviors
 	void printForward() const{ //print from head to tail
@@ -89,7 +104,7 @@ public:
 	void clear(){
 		//delete all nodes, we can just cycle a removehead or removetail ngl
 		while(head){ //🧠
-			RemoveHead();
+			removeHead();
 		}
 	}
 
@@ -135,22 +150,6 @@ public:
 	}; //move constrctor
 
 	~LinkedList(){ clear(); }; //destructor
-
-private:
-	// Stores pointers to first and last nodes and count
-	Node* head;
-	Node* tail;
-	unsigned int count;
-
-	//actual nodes
-	struct Node {
-		T data;
-		Node* prev;
-		Node* next;
-
-		Node(const T& input) :
-			data(input), prev(nullptr), next(nullptr) {}
-	};
 };
 
 
